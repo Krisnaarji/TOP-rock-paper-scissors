@@ -1,0 +1,11 @@
+body {
+    background-image: url('./images/aWQmdz03NDA.png'); /* use the correct relative path */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 600px auto; /* adjust the size as needed */
+    background-attachment: fixed;
+}
+
+.hidden {
+    display: none;
+}
