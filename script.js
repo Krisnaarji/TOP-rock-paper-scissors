@@ -35,18 +35,112 @@ function startGame() {
 
         const choicesRock = document.createElement("button")
         choicesRock.id = "rock"
+        choicesRock.classList.add("choicesBtn")
         choicesRock.textContent = "ROCK"
         choices.appendChild(choicesRock);
 
         const choicesPaper = document.createElement("button")
         choicesPaper.id = "paper"
+        choicesPaper.classList.add("choicesBtn")
         choicesPaper.textContent = "PAPER"
         choices.appendChild(choicesPaper);
 
         const choicesScissor = document.createElement("button")
         choicesScissor.id = "scissor"
+        choicesScissor.classList.add("choicesBtn")
         choicesScissor.textContent = "scissor"
         choices.appendChild(choicesScissor);
+
+        
+
+        const buttons = document.querySelectorAll(".choicesBtn");
+
+        
+
+        function playGame () {
+           
+
+            let humanScores = 0
+            let computerScores = 0
+            let i = 0
+            const playerScoreP = document.createElement("p")
+            const computerScoreP = document.createElement("p")
+            const notifScore = document.createElement("h3")
+                
+            buttons.forEach((button) => {
+                
+                button.addEventListener("click", () => {
+                    let humanChoice = button.id
+                    console.log(`\n--- Round ${i++} ---`);
+                    console.log("you choices " + humanChoice) 
+
+                    let computerChoice = Math.floor(Math.random()* 3);
+
+                        if( computerChoice==0) {
+                            computerChoice = "rock"
+                            console.log("computer " + computerChoice) ;
+                        }
+                        else if( computerChoice==1) {
+                            computerChoice = "scissor"
+                            console.log("computer " + computerChoice) ;
+
+                        }
+                        else {
+                            computerChoice = "paper"
+                            console.log("computer " + computerChoice) ;
+                    
+                        }
+
+                     if (
+                        (humanChoice == "rock" && computerChoice == "rock") ||
+                        (humanChoice == "scissor" && computerChoice == "scissor") ||
+                        (humanChoice == "paper" && computerChoice == "paper")
+                        ) {
+                            console.log("draw") 
+                            notifScore.textContent = "Draw!, Try Again";
+
+                        }
+                        else if (
+                            (humanChoice === "rock" && computerChoice === "scissor") ||
+                            (humanChoice === "paper" && computerChoice === "rock") ||
+                            (humanChoice === "scissor" && computerChoice === "paper")
+                        ) {
+                            humanScores++;
+                            playerScoreP.textContent = humanScores;
+                            computerScoreP.textContent = computerScores;
+                            notifScore.textContent = "You win! " + humanChoice + " beats " + computerChoice;
+                            
+                            console.log("You win! " + humanChoice + " beats " + computerChoice) 
+                            console.log("you " + humanScores + " computer " +computerScores)
+                        } else {
+                            computerScores++;
+                            playerScoreP.textContent = humanScores;
+                            computerScoreP.textContent = computerScores;
+                            notifScore.textContent = "You lose! " + computerChoice + " beats " + humanChoice;
+
+                            console.log("You lose! " + computerChoice + " beats " + humanChoice) 
+                            console.log("you " + humanScores + " computer " +computerScores)
+         
+
+
+                        }
+
+                        playerScore.appendChild(playerScoreP);
+                        computerScore.appendChild(computerScoreP);
+                        score.appendChild(notifScore);
+
+
+                });
+                
+                
+            });
+            
+        }
+
+        
+        
+        playGame()
+
 
     } else {
 
@@ -62,8 +156,12 @@ function startGame() {
         if (scoreTitle) score.removeChild(scoreTitle);
         if (playerScore) score.removeChild(playerScore);
         if (computerScore) score.removeChild(computerScore);
+
+        choices.innerHTML = "";
     }
+
 }
+
 
 
 
@@ -170,5 +268,5 @@ function startGame() {
 // }
 
 // playGame(6); 
-console.log(result);
+// console.log(result);
 
