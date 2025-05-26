@@ -1,11 +1,126 @@
 body {
-    background-image: url('./images/aWQmdz03NDA.png'); /* use the correct relative path */
+    background-image: url('./images/aWQmdz03NDA.png');
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 600px auto; /* adjust the size as needed */
+    background-size: 1000px auto;
     background-attachment: fixed;
+
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+#startGame {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#startGame:hover {
+    background-color: #444;
+}
+
+#score {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#scoreLabels,
+    #scoreValues {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 200px;
+    margin-bottom: 0.3rem;
+}
+
+#scoreLabels div, #scoreValues div {
+    flex: 1;
+}
+
+#notification {
+    margin-top: 1rem;
+    font-weight: 500;
+    font-size: 1rem;
+    min-height: 1.5em; 
+}
+
+#score h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#playerScore, #computerScore {
+    font-size: 1rem;
+    margin: 0.3rem 0;
+}
+
+#score h3 {
+    font-weight: 500;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+/* Choice Section */
+#choices {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-top: 100px; 
+}
+
+
+#choices h2 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+#choices button {
+    margin: 0 0.5rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #008cba;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#choices button:hover {
+    background-color: #006f9a;
+}
+
+#choiceButtons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
